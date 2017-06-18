@@ -10383,7 +10383,7 @@ function shareView(){
 	console.log(target);
 
 	var domain = "http://localhost:8080";
-	var shareLink = domain+"/chronocity/?position="+position+"&target="+target+"&vis="+visVar;
+	var shareLink = domain+"/OPCM/chronocity-viewer/?position="+position+"&target="+target+"&vis="+visVar;
 	// console.log(shareLink);
 	//var shortLink = makeShort(String(shareLink));
 
@@ -10412,7 +10412,7 @@ function handleChange(responseValue){
 
 	//checkLayers(1,0,1,1);
 	//toggleChanges();
-	cmd0 = "http://localhost:8080/chronocity/"
+	cmd0 = "http://localhost:8080/OPCM/chronocity-viewer/"
 	cmd1 = "?position=["
 	cmd2 = "]&target=["
 	cmd3 = "]"

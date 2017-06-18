@@ -36,10 +36,9 @@
 	<link rel="stylesheet" type="text/css" href="libs/perfect-scrollbar/css/perfect-scrollbar.css">
 	<link rel="stylesheet" href="libs/openlayers3/ol.css" type="text/css">
 	
-
- <meta http-equiv='cache-control' content='no-cache'>
-<meta http-equiv='expires' content='0'>
-<meta http-equiv='pragma' content='no-cache'> </head>
+	  <meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'> </head>
 
   <body>
   
@@ -91,7 +90,7 @@
 		viewer.setFOV(70);
 		viewer.setPointSizing("Fixed");
 		viewer.setQuality("Circles");
-		viewer.setPointBudget(5*1000*1000);
+		viewer.setPointBudget(1*1000*1000);
 		viewer.setIntensityRange(0, 300);
 		viewer.setWeightClassification(1);
 		viewer.setBackground("skybox");
@@ -104,7 +103,8 @@
 			if (window.location.href.slice(-1) == "]"){
 				viewer.toggleSidebar();
 				$("#menu_change").next().show();
-				viewer.setMaterial("RGB");
+				viewer.setMaterial("Composite");
+				checkLayers(1,0,1,1);
 				}
 
 			if (window.location.href.slice(-1) == "/"){
@@ -128,12 +128,12 @@
 
 		Potree.loadPointCloud("pointclouds/AHN2-AHN3/cloud.js", "AHNDelta23", e3 => {
 			viewer.scene.addPointCloud(e3.pointcloud);
-			e3.pointcloud.visible = true;
+			e3.pointcloud.visible = false;
 		});
 
 		Potree.loadPointCloud("pointclouds/AHN3-AHN2/cloud.js", "AHNDelta32", e4 => {
 			viewer.scene.addPointCloud(e4.pointcloud);
-			e4.pointcloud.visible = true;
+			e4.pointcloud.visible = false;
 		});
 
 		viewer.scene.view.position.set(84426.24,447426.30,58.43);

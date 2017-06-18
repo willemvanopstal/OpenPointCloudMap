@@ -114,9 +114,9 @@ if __name__ == '__main__':
     port = 12839
 
     #serv_path = raw_input('Specify the change detection service path: (e.g. "E:\\ChronoCity-CD-Server-Engine\\")')
-    serv_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\ChronoCity-CD-Server-Engine-master\\"
+    serv_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\chronocity-engine\\"
 
     #potree_path = raw_input('Specify the Potree path: (e.g. "C:\\apache-tomcat-8.5.14\\webapps\\chronocity\\")')
-    potree_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\ChronoCity-Potree-Server-master\\"
+    potree_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\chronocity-viewer\\"
 
     app.run('', port)

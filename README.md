@@ -15,37 +15,27 @@ For the server-side running correctly, you should also make sure you have the fo
 - fiona
 - laspy
 - flask
-- 
+- copy
+- os
+- json
+- multiprocessing
+- time
+- shutil
+- shapely
+
+__Setup__  
+
+1. In <code>/OPCM/chronocity-engine/server_service.py</code> at the bottom you should replace the two paths <code> serv_path</code> and <code>potree_path</code> with the path to the two installations folders like below. Be aware of the double '\\' ! The server listens to port _12839_ by default, but you can specify it yourself if needed.
 
 
+        port = 12839  
+        serv_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\chronocity-engine\\"
+        potree_path = "C:\\geo1007\\apache-tomcat-8.5.14\\webapps\\OPCM\\chronocity-viewer\\"
 
+2. Run the <code>server_service.py</code> to start the server. You can test if it is running correctly by browsing to <code>localhost:12839/test</code> in your browser. It will return the message _ACTIVE_ if it is running.
 
+3. The viewer runs on port _8080_ by default and relies on the default value for the server-side. If you have changed the default port, you should edit <code>OPCM/chronocity-viewer/build/potree/potree.js</code> and search for _localhost:_. Replace the entries with your custom ports. 
 
-
-
-__Folder structure and Point clouds__   
-You should check the 'index.html' for the pointclouds you want to load. Just by editing the paths. Do not change the names, these are used for selecting the active layers.
-
-            Potree.loadPointCloud("pointclouds/AHN2/cloud.js", "AHN2", e1 => {
-			viewer.scene.addPointCloud(e1.pointcloud);
-			e1.pointcloud.visible = true;
-		});
-		
-		Potree.loadPointCloud("pointclouds/AHN3/cloud.js", "AHN3", e2 => {
-			viewer.scene.addPointCloud(e2.pointcloud);
-			e2.pointcloud.visible = false;
-		});
-
-		Potree.loadPointCloud("pointclouds/AHN2-AHN3/cloud.js", "AHNDelta23", e => {
-			viewer.scene.addPointCloud(e.pointcloud);
-			e.pointcloud.visible = false;
-		});
-
-		Potree.loadPointCloud("pointclouds/AHN3-AHN2/cloud.js", "AHNDelta32", e => {
-			viewer.scene.addPointCloud(e.pointcloud);
-			e.pointcloud.visible = false;
-		});  
-    
 __Console controls__  
 All important interactions can be done within the GUI. There are also some other usefull command for more control. You can use these in your browser's webconsole;  
 
@@ -54,7 +44,3 @@ All important interactions can be done within the GUI. There are also some other
     toggleAHN()                        # toggles the view between AHN2 and AHN3
     saveAsImage()                      # saves the current view as a .png image (prompt)
     
-__Change Detection__  
-For the change-detection to work, it's needed to run the 'pylistener.py'. You can test if it's running properly by putting the following in your browser or http client;  
-    
-    localhost:12839/test

@@ -10353,13 +10353,15 @@ function saveAsImage() {
 function restartChangeDetection(){
 	clearRequest();
 	document.getElementById("startOver").style.display = "none";
-	document.getElementById("resultsDiv").style.display = "block";
-	document.getElementById("roiSelecter").style.display = "block";
+	if(document.getElementById("showchanges")==0){
+		document.getElementById("resultsDiv").style.display = "none";
+		document.getElementById("roiSelecter").style.display = "block";
+		viewer.setMaterial("Elevation");
+		checkLayers(1,0,0,0);
+	}
+
 	//document.getElementById("startAnalysis").style.display = "block";
 	document.getElementById("meanWhile").style.display = "none";
-	checkLayers(1,0,0,0);
-	viewer.setMaterial("Elevation");
-	// TODO: this
 
 }
 
@@ -10426,7 +10428,7 @@ function handleChange(responseValue){
 	//viewer.setWeightElevation(0.4);
 	//viewer.setMaterial("Composite");
 
-	//setVisibleLayers(1,0,1);
+	//setVisibleLayers(1,0,1,1);
 }
 
 function enableRun() {
@@ -10484,6 +10486,7 @@ clearRequest();
 	document.getElementById("roiSelecter").style.display = "none";
 	//document.getElementById("startAnalysis").style.display = "block";
 	document.getElementById("meanWhile").style.display = "block";
+	document.getElementById("startOver").style.display = "block";
 
 
 function readBody(xhr) {

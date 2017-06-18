@@ -21,7 +21,7 @@
 				maxMarkers: 8});
 	}
 
-
+/*
 	var visited_before = "False";
 	var c_button = document.getElementById("menu_change");
 	c_button.onclick = function(){	
@@ -29,7 +29,26 @@
 	if(visited_before == "False"){
 	viewer.setMaterial("RGB");
 	visited_before = "True";}}}
+*/
 
+function showchanges(){
+    var x = document.getElementById("showchanges");
+    if(x.checked == 1){
+		viewer.setWeightClassification(0.0);
+		viewer.setWeightElevation(0.4);
+		viewer.setMaterial("Composite");
+		checkLayers(1,0,1,1);
+		document.getElementById("resultsDiv").style.display = "block";
+	}
+	else if(x.checked == 0){
+        viewer.setWeightClassification(0.0);
+		viewer.setWeightElevation(0.4);
+		viewer.setMaterial("Elevation");
+		checkLayers(1,0,0,0);
+		document.getElementById("resultsDiv").style.display = "none";
+		document.getElementById("startOver").style.display = "none";
+	}
+}
 
 function handleKeyPress(e){
  var key=e.keyCode || e.which;
@@ -224,7 +243,8 @@ function handleKeyPress(e){
 				<div>
 
 					<li style="font-size:80%">This tool identifies changed geometries on xyz-points solely. You have to specify two moments in time which you want to compare, a region of interest and sme optional parameters. The results will show up when the algorithm is done.</li>
-
+					<li>	<label><input type="checkbox" id="showchanges" onchange="showchanges()"/><span>Show changes</span></br></label>
+					</li>
 				</div>
 
 				<div id="roiSelecter" style="display:block">
@@ -277,11 +297,11 @@ function handleKeyPress(e){
 
 				<div id="meanWhile" style="display:none">
 					<div class="divider" style="padding: 10px 0px 10px 0px">
-						<span>Processing request ...</span></div>
+						<span color="red">Processing request ...</span></div>
 					<li id="processing_info">We are now processing your request. This can take a while, depending on the area you selected. Below is an indication of the procesingtime;</li>
 				</div>
 
-				<div id="resultsDiv" style="display:block">
+				<div id="resultsDiv" style="display:none">
 					<div class="divider" style="padding: 10px 0px 10px 0px">
 						<span>Calculated Changes</span></div>
 					<li id="resultsInfo" style="font-size:80%">New points are shown in green, removed points are shown in red. You can toggle layers using the checkboxes below.</br></li>
@@ -305,7 +325,6 @@ function handleKeyPress(e){
 				<div id="startOver" style="display:none">
 					<div class="divider" style="padding: 10px 0px 10px 0px">
 						<span>Restart</span></div>
-					<li id="resultsInfo" style="font-size:80%">New points are shown in green, removed points are shown in red. You can toggle layers using the checkboxes below.</br></li>
 					<li><button id="boxbutton" type="button" class="toggleButton" onclick="restartChangeDetection()">Restart all (!)</button></li>
 				</div>
 

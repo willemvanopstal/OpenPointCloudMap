@@ -10355,10 +10355,10 @@ function restartChangeDetection(){
 	document.getElementById("startOver").style.display = "none";
 	if(document.getElementById("showchanges")==0){
 		document.getElementById("resultsDiv").style.display = "none";
-		document.getElementById("roiSelecter").style.display = "block";
 		viewer.setMaterial("Elevation");
 		checkLayers(1,0,0,0);
 	}
+		document.getElementById("roiSelecter").style.display = "block";
 
 	//document.getElementById("startAnalysis").style.display = "block";
 	document.getElementById("meanWhile").style.display = "none";
@@ -10414,14 +10414,14 @@ function handleChange(responseValue){
 
 	//checkLayers(1,0,1,1);
 	//toggleChanges();
-	cmd0 = "http://localhost:8080/OPCM/chronocity-viewer/"
-	cmd1 = "?position=["
-	cmd2 = "]&target=["
-	cmd3 = "]"
-	cmdx = responseArray[0]
-	cmdy = responseArray[1]
+	cmd0 = "http://localhost:8080/OPCM/chronocity-viewer/";
+	cmd1 = "?position=[";
+	cmd2 = "]&target=[";
+	cmd3 = "]ch";
+	cmdx = responseArray[0];
+	cmdy = responseArray[1];
 
-	new_goto = cmd0+cmd1+cmdx+";"+cmdy+";"+400+cmd2+(parseFloat(responseArray[0])+50)+";"+(parseFloat(responseArray[1])+10)+";"+(-300)+cmd3
+	new_goto = cmd0+cmd1+cmdx+";"+cmdy+";"+400+cmd2+(parseFloat(responseArray[0])+50)+";"+(parseFloat(responseArray[1])+10)+";"+(-300)+cmd3;
 
 	window.location = new_goto;
 	//viewer.setWeightClassification(0.0);

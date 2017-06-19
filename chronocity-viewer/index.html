@@ -4,13 +4,13 @@
 	<script>
 
 	  window.onload = function() {
-		if(window.location.href.slice(-2) == "0]") {
+		if(window.location.href.slice(-2) == "ch") {
 			window.location = window.location + '#';
 			window.location.reload(true);
 		}
 
-		if(window.location.href.slice(-1) == "#"){
-		window.location = window.location.href.split('#')[0] + "&vis=[1;0;1;1]";
+		if(window.location.href.slice(-3) == "ch#"){
+		window.location = window.location.href.split('ch#')[0] + "&vis=[1;0;1;1]&c";
 		}
 	}
 
@@ -86,11 +86,11 @@
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 
 		viewer.setEDLEnabled(true);
-		viewer.setPointSize(0.7);
+		viewer.setPointSize(0.8);
 		viewer.setFOV(70);
 		viewer.setPointSizing("Attenuated");
 		viewer.setQuality("Circles");
-		viewer.setPointBudget(1*1000*1000);
+		viewer.setPointBudget(2*1000*1000);
 		viewer.setIntensityRange(0, 300);
 		viewer.setWeightClassification(1);
 		viewer.setBackground("skybox");
@@ -100,11 +100,16 @@
 			viewer.setLanguage('en');
             viewer.setHeightRange(-45, 160);
 
-			if (window.location.href.slice(-1) == "]"){
+			if (window.location.href.slice(-2) == "&c"){
 				viewer.toggleSidebar();
 				$("#menu_change").next().show();
+				viewer.setWeightClassification(0.0);
+				viewer.setWeightElevation(0.2);
 				viewer.setMaterial("Composite");
 				checkLayers(1,0,1,1);
+				document.getElementById("showchanges").click();
+
+
 				}
 
 			if (window.location.href.slice(-1) == "/"){

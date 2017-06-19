@@ -8,7 +8,7 @@ __Installation__
 5. Download the AHN datasets in potree-structure here: <code>download</code>
 6. Extract the two folders <code>AHN2</code> and <code>AHN3</code> and put them both under <code>chronocity-viewer/pointclouds/</code>
 7. Get a LAStools license-file (.txt) and save it under <code>chronocity-engine/Tools/LAS_tools</code>
-8. The ChronoCity-viewer is ready to view. You can access it through your webserver and browse to <code>/OPCM/chronocity-viewer/index.html</code>
+8. The ChronoCity-viewer is ready to view. You can access it through your webserver and browse to <code>domain:port/OPCM/</code>
 
 __Python Dependencies__
 For the server-side running correctly, you should also make sure you have the following dependencies installed on your Python interpreter;

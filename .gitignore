@@ -1,5 +1,5 @@
-.las
-.laz
+*.las
+*.laz
 /chronocity-engine/Tools/LAS_Tools/lastoolslicense.txt
+/chronocity-viewer/pointclouds/AHN2/
 /chronocity-viewer/pointclouds/AHN3/
-/chronocity-viewer/poinclouds/AHN2/

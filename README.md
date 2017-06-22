@@ -1,9 +1,8 @@
-# ChronoCity
-
-__Demo__  
+## Demo
 A functional online demo can be found at: www.chronocity.net
 _(22-6-2017)_
 
+# ChronoCity
 
 __Installation__
 1. Install a (local) webserver. E.g. Apache Tomcat

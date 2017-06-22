@@ -1,6 +1,8 @@
 ## Demo
 A functional online demo can be found at: www.chronocity.net
-_(22-6-2017)_
+_(22-6-2017)_  
+
+Before executing a change detection, make sure the service is running by browsing to www.chronocity.net:12839/test  
 
 # ChronoCity
 
